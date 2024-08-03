@@ -1,0 +1,7 @@
+{
+    "model": "gpt3.5",
+    "api_key": "sk-None-uQeqogOfNm1fiCNXj1QmT3BlbkFJY6O61QxxujhALYxUlpaTl",
+    "base_url": "https://chatgpt.com/",
+    "api_type": "gpt3",
+    "api_version": "2024-02-01"
+}
