@@ -3,21 +3,19 @@ import json
 import openai
 import os
 
-api_key = "sk-proj-Oe48zvwErLUek2R7NvuTT3BlbkFJROpQMDhjdAAj4hGeZ35u"
-openai.api_key = api_key
-os.environ['OPENAI_API_KEY'] = 'sk-proj-Oe48zvwErLUek2R7NvuTT3BlbkFJROpQMDhjdAAj4hGeZ35u'
+
+os.environ['OPENAI_API_KEY'] = '5c7682a2c590db133483670018c3c8e753c6b888'
 
 configList = [{
-    "model": "gpt-3.5-turbo",
-    "api_key": 'sk-proj-Oe48zvwErLUek2R7NvuTT3BlbkFJROpQMDhjdAAj4hGeZ35u',
+    "model": "llama3.1",
+    "base_url": "http://localhost:11434"
 
 }]
 
 llm_config = {
     "config_list": [{
-    "model": "gpt-3.5-turbo",
-    "api_key": 'sk-proj-Oe48zvwErLUek2R7NvuTT3BlbkFJROpQMDhjdAAj4hGeZ35u',
-
+    "model": "llama3.1",
+    "base_url": "http://localhost:11434"
 }]
 }
 
