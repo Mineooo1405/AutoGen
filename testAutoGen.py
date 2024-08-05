@@ -3,25 +3,17 @@ import json
 import openai
 import os
 
-
-os.environ['OPENAI_API_KEY'] = '5c7682a2c590db133483670018c3c8e753c6b888'
-
-configList = [{
-    "model": "llama3.1",
-    "base_url": "http://localhost:11434"
-
-}]
-
-llm_config = {
-    "config_list": [{
-    "model": "llama3.1",
-    "base_url": "http://localhost:11434"
-}]
-}
+llm_config = [
+    {
+    "model": "codellama",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "api_key": 'ollama'
+    }
+]
 
 Assistant = autogen.AssistantAgent(
-    name = "Ho Tro",
-    llm_config= llm_config
+    name = "assitant",
+    llm_config = {"config_list": llm_config } 
 )
 
 userProxy = autogen.UserProxyAgent(
@@ -29,6 +21,7 @@ userProxy = autogen.UserProxyAgent(
     human_input_mode = "ALWAYS",
     is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
     code_execution_config={
+        "work_dir": "coding",
         "use_docker": False
     }
 )
