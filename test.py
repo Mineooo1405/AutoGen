@@ -1,14 +1,25 @@
-from autogen import AssistantAgent, UserProxyAgent
-import matplotlib
-config_list = [
-  {
+from autogen import ConversableAgent
+
+llm_config = [
+    {
     "model": "codellama",
-    "base_url": "http://localhost:11434/v1",
-    "api_key": "ollama",
-  }
+    "base_url": "http://127.0.0.1:11434/v1",
+    "api_key": 'ollama'
+    }
 ]
 
-assistant = AssistantAgent("assistant", llm_config={"config_list": config_list})
+Minh = ConversableAgent(
+      name="Minh",
+      system_message="You are an orator in a two-person debate",
+      llm_config = {"config_list": llm_config },
+      human_input_mode="NEVER"  
+)
 
-user_proxy = UserProxyAgent("user_proxy", code_execution_config={"work_dir": "coding", "use_docker": False})
-user_proxy.initiate_chat(assistant, message="Plot a chart of NVDA and TESLA stock price change YTD.")
+Nhi = ConversableAgent(
+      name = "Nhi",
+      system_message="You are an orator in a two-person debate",
+      llm_config = {"config_list": llm_config },
+      human_input_mode="NEVER"
+)
+
+result = Minh.initiate_chat(Nhi, message="Nhi, raising the age of retirement will gain more benefit. Change my mind.", max_turns = 2) 
